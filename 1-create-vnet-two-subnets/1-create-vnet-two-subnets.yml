@@ -7,9 +7,6 @@
       azure_rm_resourcegroup:
         name: network
         location: westeurope
-      tags:
-        testing: testing
-        delete: never
     - name: Create 1-create-vnet-two-subnets
       azure_rm_deployment:
       state: present
