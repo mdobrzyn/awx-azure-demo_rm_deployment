@@ -9,7 +9,7 @@
         location: westeurope
     - name: Create 1-create-vnet-two-subnets
       azure_rm_deployment:
-      state: present
-      resource_group_name: network
-      template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.json'
-      parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.parameters.json'
+        state: present
+        resource_group_name: network
+        template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.json'
+        parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.parameters.json'
