@@ -18,7 +18,7 @@
             "value": "RouteBased"
         },
         "existingVirtualNetworkName": {
-            "value": "VNet1"
+            "value": "vnet1"
         },
         "newSubnetName": {
             "value": "GatewaySubnet"

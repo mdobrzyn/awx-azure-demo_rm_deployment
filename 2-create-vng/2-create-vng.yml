@@ -8,5 +8,5 @@
         state: present
         resource_group_name: network
         location: westeurope
-        template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.json'
-        parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.parameters.json'
+        template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/2-create-vng/azuredeploy.json'
+        parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/2-create-vng/azuredeploy.parameters.json'

@@ -69,7 +69,7 @@
                 }
             },
             "dependsOn": [
-                "Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet",
+                "Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
                 "[concat('Microsoft.Network/publicIPAddresses/', parameters('newPublicIpAddressName'))]"
             ]
         },
