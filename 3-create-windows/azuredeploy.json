@@ -199,10 +199,7 @@
           "dnsServers": []
         },
         "enableIPForwarding": false
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks/', variables('myVNETName'))]"
-      ]
+      }
     }
   ],
   "outputs": {}
