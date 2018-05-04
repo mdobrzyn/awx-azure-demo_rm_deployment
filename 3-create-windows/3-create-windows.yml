@@ -18,7 +18,7 @@
           virtualMachineAdminUserName:
             value: vmadmin
           virtualMachineAdminPassword
-            value: P@ssw0rd10!@
+            value: "P@ssw0rd1012"
           virtualMachineNamePrefix:
             value: weu
           virtualMachineCount:
