@@ -186,7 +186,7 @@
             "autoUpgradeMinorVersion": true
           },
           "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineNamePrefix'))]"
+            "[resourceId('Microsoft.Compute/virtualMachines', concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]"
           ]
         }
       ],
