@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "virtualMachineAdminUserName": {
-      "value": "azadmin"
+      "value": "vmadmin"
     },
     "virtualMachineAdminPassword": {
       "value": "GEN-PASSWORD"
@@ -21,7 +21,7 @@
       "value": "Server2016"
     },
     "availabilitySetName": {
-      "value": "MyAvailabilitySet"
+      "value": "vmas"
     }
   }
 }
