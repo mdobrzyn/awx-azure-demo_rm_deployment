@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Create a resource group for VMs
+      azure_rm_resourcegroup:
+        name: vms
+        location: westeurope
+    - name: Create 2-create-windows
+      azure_rm_deployment:
+        state: present
+        resource_group_name: network
+        location: westeurope
+        template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.json'
+        parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/1-create-vnet-two-subnets/azuredeploy.parameters.json'
+
+
+virtualMachineAdminUserName
+virtualMachineAdminPassword
+virtualMachineNamePrefix
+virtualMachineCount

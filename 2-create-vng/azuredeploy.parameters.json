@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "vng01"
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "sku": {
+            "value": "VpnGw1"
+        },
+        "gatewayType": {
+            "value": "Vpn"
+        },
+        "vpnType": {
+            "value": "RouteBased"
+        },
+        "existingVirtualNetworkName": {
+            "value": "VNet1"
+        },
+        "newSubnetName": {
+            "value": "GatewaySubnet"
+        },
+        "subnetAddressPrefix": {
+            "value": "10.0.254.0/29"
+        },
+        "newPublicIpAddressName": {
+            "value": "vng01"
+        }
+    }
+}
