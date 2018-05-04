@@ -62,10 +62,6 @@
       "metadata": {
         "description": "Availability Set Name where the VM will be placed"
       }
-    },
-    "extensions_BGInfo_name": {
-      "defaultValue": "BGInfo",
-      "type": "String"
     }
   },
   "variables": {
@@ -172,24 +168,6 @@
           }
         }
       },
-      "resources": [
-        {
-          "type": "Microsoft.Compute/virtualMachines/extensions",
-          "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '/', parameters('extensions_BGInfo_name'))]",
-          "apiVersion": "2017-03-30",
-          "location": "northeurope",
-          "scale": null,
-          "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "[parameters('extensions_BGInfo_name')]",
-            "typeHandlerVersion": "2.1",
-            "autoUpgradeMinorVersion": true
-          },
-          "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines', concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]"
-          ]
-        }
-      ],
       "dependsOn": [
         "[concat('Microsoft.Compute/availabilitySets/', parameters('availabilitySetName'))]",
         "[concat('Microsoft.Storage/storageAccounts/', variables('diagnosticStorageAccountName'))]",
