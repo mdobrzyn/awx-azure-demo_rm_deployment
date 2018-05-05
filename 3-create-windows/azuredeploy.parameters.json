@@ -22,6 +22,14 @@
     },
     "availabilitySetName": {
       "value": "vmas"
+    },
+    "virtualNetworkName": {
+      "value": "vnet1"
+    },
+    "virtualNetworkResourceGroup": {
+      "value": "network"
+    },
+    "subnet1Name": {
+      "value": "local"
     }
   }
-}
