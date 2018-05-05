@@ -19,7 +19,7 @@
     },
     "vaultName": {
       "type": "string",
-      "value": "vault"
+      "value": "awvvault"
     },
     "virtualMachineAdminPasswordfromvault": {
       "type": "securestring",
