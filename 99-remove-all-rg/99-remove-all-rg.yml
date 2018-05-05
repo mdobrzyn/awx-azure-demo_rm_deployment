@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Remove a resource group for VMs
+      azure_rm_resourcegroup:
+        name: vms
+        location: westeurope
+        state: absent
+    - name: Remove a resource group for network
+      azure_rm_resourcegroup:
+        name: netowrk
+        location: westeurope
+        state: absent
