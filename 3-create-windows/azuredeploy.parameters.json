@@ -12,7 +12,15 @@
       "value": "vmadmin"
     },
     "vaultName": {
-      "value": "vault"
+      "value": "awvvault"
+    },
+    "virtualMachineAdminPasswordfromvault": {
+      "reference": {
+        "keyVault": {
+          "id": "[resourceId(subscription().subscriptionId,  parameters('virtualMachineAdminPasswordvaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+        },
+        "secretName": "[parameters('virtualMachineAdminPasswordvaultsecretName')]"
+      }
     },
     "virtualMachineNamePrefix": {
       "value": "vmapp"
