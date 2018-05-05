@@ -6,7 +6,7 @@
       "value": "vmadmin"
     },
     "virtualMachineAdminPassword": {
-      "value": "GEN-PASSWORD"
+      "value": "GEN-UNIQUE-10"
     },
     "virtualMachineNamePrefix": {
       "value": "vmapp"
