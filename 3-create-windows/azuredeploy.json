@@ -45,6 +45,24 @@
         "description": "Virtual Machine Size"
       }
     },
+    "virtualNetworkName": {
+      "type": "string",
+      "metadata": {
+        "description": "VNET Name"
+      }
+    },
+    "virtualNetworkResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource Group VNET is deployed in"
+      }
+    },
+    "subnet1Name": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the subnet inside the VNET"
+      }
+    },
     "operatingSystem": {
       "type": "string",
       "defaultValue": "Server2016",
@@ -65,8 +83,6 @@
     }
   },
   "variables": {
-    // "myVNETName": "vnet1",
-    // "myVNETSubnet1Name": "local",
     "diagnosticStorageAccountName": "[concat('diagst', uniqueString(resourceGroup().id))]",
     "operatingSystemValues": {
       "Server2012R2": {
@@ -82,11 +98,8 @@
     },
     "availabilitySetPlatformFaultDomainCount": "2",
     "availabilitySetPlatformUpdateDomainCount": "5",
-    // "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('myVNETName'))]",
-    // "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('myVNETSubnet1Name'))]",
     "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
-
   },
   "resources": [
     {
