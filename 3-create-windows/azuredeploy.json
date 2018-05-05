@@ -9,10 +9,25 @@
         "description": "Administrator Username for the local admin account"
       }
     },
-    "virtualMachineAdminPassword": {
+    "virtualMachineAdminPasswordvaultResourceGroup": {
+      "type": "string",
+      "value": "vault"
+    },
+    "virtualMachineAdminPasswordvaultsecretName": {
+      "type": "string",
+      "value": "vmadmin"
+    },
+    "vaultName": {
+      "type": "string",
+      "value": "vault"
+    },
+    "virtualMachineAdminPasswordfromvault": {
       "type": "securestring",
-      "metadata": {
-        "description": "Administrator password for the local admin account"
+      "reference": {
+        "keyVault": {
+          "id": "[resourceId(subscription().subscriptionId,  parameters('virtualMachineAdminPasswordvaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+        },
+        "secretName": "[parameters('virtualMachineAdminPasswordvaultsecretName')]"
       }
     },
     "virtualMachineNamePrefix": {
@@ -165,7 +180,7 @@
             "provisionVMAgent": true
           },
           "secrets": [],
-          "adminPassword": "[parameters('virtualMachineAdminPassword')]"
+          "adminPassword": "[parameters('virtualMachineAdminPasswordfromvault')]"
         },
         "networkProfile": {
           "networkInterfaces": [

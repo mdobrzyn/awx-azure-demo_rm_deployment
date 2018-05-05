@@ -5,8 +5,14 @@
     "virtualMachineAdminUserName": {
       "value": "vmadmin"
     },
-    "virtualMachineAdminPassword": {
-      "value": "GEN-UNIQUE-10"
+    "virtualMachineAdminPasswordvaultResourceGroup": {
+      "value": "vault"
+    },
+    "virtualMachineAdminPasswordvaultsecretName": {
+      "value": "vmadmin"
+    },
+    "vaultName": {
+      "value": "vault"
     },
     "virtualMachineNamePrefix": {
       "value": "vmapp"
