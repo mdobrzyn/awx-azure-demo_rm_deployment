@@ -10,6 +10,6 @@
         state: absent
     - name: Remove a resource group for network
       azure_rm_resourcegroup:
-        name: netowrk
+        name: network
         location: westeurope
         state: absent
