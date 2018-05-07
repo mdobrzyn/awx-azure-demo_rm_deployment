@@ -21,7 +21,7 @@
     },
     "virtualMachineCount": {
       "type": "int",
-      "defaultValue": 3,
+      "defaultValue": 2,
       "metadata": {
         "description": "Number of  virtual machines to be created"
       }
@@ -31,6 +31,9 @@
       "defaultValue": "Standard_B2s",
       "allowedValues": [
         "Standard_B2s",
+        "Standard_B4s",
+        "Standard_A2_v2",
+        "Standard_A4_v2",
         "Standard_DS1_v2",
         "Standard_DS2_v2",
         "Standard_DS3_v2",

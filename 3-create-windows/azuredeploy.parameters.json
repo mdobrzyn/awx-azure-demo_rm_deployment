@@ -12,10 +12,13 @@
       "value": "{{ fromansibleplaybook_virtualMachineNamePrefix }}"
     },
     "virtualMachineCount": {
-      "value": "{{ fromansibleplaybook_virtualMachineCount }}"
+      "value": {
+        { fromansibleplaybook_virtualMachineCount
+        }
+      }
     },
     "virtualMachineSize": {
-      "value": "Standard_B2s"
+      "value": "{{ fromansibleplaybook_virtualMachineSize }}"
     },
     "operatingSystem": {
       "value": "Server2016"
