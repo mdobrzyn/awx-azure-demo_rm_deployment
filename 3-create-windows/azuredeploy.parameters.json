@@ -5,15 +5,6 @@
     "virtualMachineAdminUserName": {
       "value": "vmadmin"
     },
-    "virtualMachineAdminPasswordvaultResourceGroup": {
-      "value": "vault"
-    },
-    "virtualMachineAdminPasswordvaultsecretName": {
-      "value": "vmadmin"
-    },
-    "vaultName": {
-      "value": "awvvault"
-    },
     "virtualMachineAdminPassword": {
       "value": "{{ fromansibleplaybook_adminPassword }}"
     },
