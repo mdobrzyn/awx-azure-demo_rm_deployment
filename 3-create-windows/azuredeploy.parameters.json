@@ -12,10 +12,7 @@
       "value": "{{ fromansibleplaybook_virtualMachineNamePrefix }}"
     },
     "virtualMachineCount": {
-      "value": {
-        { fromansibleplaybook_virtualMachineCount
-        }
-      }
+      "value": "[int('{{ fromansibleplaybook_virtualMachineCount }}')]"
     },
     "virtualMachineSize": {
       "value": "{{ fromansibleplaybook_virtualMachineSize }}"
