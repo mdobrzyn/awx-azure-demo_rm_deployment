@@ -19,13 +19,9 @@
         "description": "Name of the virtual machine to be created"
       }
     },
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "{{ fromansibleplaybook_virtualMachineCount }}"
-    },
     "virtualMachineCount": {
-      "type": "int",
-      "defaultValue": 2,
+      "type": "string",
+      "defaultValue": "2",
       "metadata": {
         "description": "Number of  virtual machines to be created"
       }
@@ -139,7 +135,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "VMcopy",
-        "count": "[parameters('virtualMachineCount')]"
+        "count": "[int(parameters('virtualMachineCount'))]"
       },
       "properties": {
         "hardwareProfile": {
@@ -200,7 +196,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "NICCopy",
-        "count": "[parameters('virtualMachineCount')]"
+        "count": "[int(parameters('virtualMachineCount'))]"
       },
       "properties": {
         "ipConfigurations": [
