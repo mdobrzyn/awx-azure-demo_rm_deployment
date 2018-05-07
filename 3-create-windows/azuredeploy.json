@@ -87,7 +87,8 @@
     "availabilitySetPlatformFaultDomainCount": "2",
     "availabilitySetPlatformUpdateDomainCount": "5",
     "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-    "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]",
+    "vmcount": "[int(parameters('virtualMachineCount'))]"
   },
   "resources": [
     {
@@ -124,7 +125,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "VMcopy",
-        "count": "[int(parameters('virtualMachineCount'))]"
+        "count": "[variables('vmcount')]"
       },
       "properties": {
         "hardwareProfile": {
@@ -185,7 +186,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "NICCopy",
-        "count": "[int(parameters('virtualMachineCount'))]"
+        "count": "[variables('vmcount')]"
       },
       "properties": {
         "ipConfigurations": [
