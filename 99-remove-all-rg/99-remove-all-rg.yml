@@ -7,7 +7,7 @@
       azure_rm_resourcegroup:
         name: vms
         location: westeurope
-        state: 
+        state: absent
         force: yes
     - name: Remove a resource group for network
       azure_rm_resourcegroup:
