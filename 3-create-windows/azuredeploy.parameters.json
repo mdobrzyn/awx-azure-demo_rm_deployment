@@ -11,8 +11,12 @@
     "virtualMachineNamePrefix": {
       "value": "{{ fromansibleplaybook_virtualMachineNamePrefix }}"
     },
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "{{ fromansibleplaybook_virtualMachineCount }}"
+    },
     "virtualMachineCount": {
-      "value": "[int('{{ fromansibleplaybook_virtualMachineCount }}')]"
+      "value": "[int(parameters('stringToConvert'))]"
     },
     "virtualMachineSize": {
       "value": "{{ fromansibleplaybook_virtualMachineSize }}"
