@@ -14,13 +14,8 @@
     "vaultName": {
       "value": "awvvault"
     },
-    "virtualMachineAdminPasswordfromvault": {
-      "reference": {
-        "keyVault": {
-          "id": "[resourceId(subscription().subscriptionId,  parameters('virtualMachineAdminPasswordvaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-        },
-        "secretName": "[parameters('virtualMachineAdminPasswordvaultsecretName')]"
-      }
+    "virtualMachineAdminPassword": {
+      "value": "{{ fromansibleplaybook_adminPassword }}"
     },
     "virtualMachineNamePrefix": {
       "value": "vmapp"

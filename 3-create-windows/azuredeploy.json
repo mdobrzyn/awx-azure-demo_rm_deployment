@@ -3,23 +3,14 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "virtualMachineAdminUserName": {
-      "defaultValue": "azadmin",
+      "defaultValue": "vmadmin",
       "type": "string",
       "metadata": {
         "description": "Administrator Username for the local admin account"
       }
     },
-    "virtualMachineAdminPasswordvaultResourceGroup": {
-      "type": "string",
-      "value": "vault"
-    },
-    "virtualMachineAdminPasswordvaultsecretName": {
-      "type": "string",
-      "value": "vmadmin"
-    },
-    "vaultName": {
-      "type": "string",
-      "value": "awvvault"
+    "virtualMachineAdminPassword": {
+      "type": "string"
     },
     "virtualMachineNamePrefix": {
       "defaultValue": "MyVM0",
@@ -171,14 +162,7 @@
             "provisionVMAgent": true
           },
           "secrets": [],
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(subscription().subscriptionId,  parameters('virtualMachineAdminPasswordvaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('virtualMachineAdminPasswordvaultsecretName')]"
-            }
-          }
+          "adminPassword": "[parameters('virtualMachineAdminPassword')]"
         },
         "networkProfile": {
           "networkInterfaces": [
