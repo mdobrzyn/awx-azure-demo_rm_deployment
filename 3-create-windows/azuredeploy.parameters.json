@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "virtualMachineAdminUserName": {
-      "value": "vmadmin"
+      "value": "{{ fromansibleplaybook_virtualMachineAdminUserName }}"
     },
     "virtualMachineAdminPassword": {
       "value": "{{ fromansibleplaybook_adminPassword }}"
     },
     "virtualMachineNamePrefix": {
-      "value": "vmapp"
+      "value": "{{ fromansibleplaybook_virtualMachineNamePrefix }}"
     },
     "virtualMachineCount": {
-      "value": 3
+      "value": "{{ fromansibleplaybook_virtualMachineCount }}"
     },
     "virtualMachineSize": {
       "value": "Standard_B2s"
@@ -21,16 +21,16 @@
       "value": "Server2016"
     },
     "availabilitySetName": {
-      "value": "vmas"
+      "value": "[concat(parameters('virtualMachineNamePrefix'), 'as']"
     },
     "virtualNetworkName": {
-      "value": "vnet1"
+      "value": "{{ fromansibleplaybook_virtualNetworkName }}"
     },
     "virtualNetworkResourceGroup": {
-      "value": "network"
+      "value": "{{ fromansibleplaybook_virtualNetworkResourceGroup }}"
     },
     "subnet1Name": {
-      "value": "local"
+      "value": "{{ fromansibleplaybook_subnet1Name }}"
     }
   }
 }
