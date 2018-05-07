@@ -13,3 +13,4 @@
         name: network
         location: westeurope
         state: absent
+        force: yes

@@ -21,15 +21,6 @@
       "type": "string",
       "value": "awvvault"
     },
-    "virtualMachineAdminPasswordfromvault": {
-      "type": "securestring",
-      "reference": {
-        "keyVault": {
-          "id": "[resourceId(subscription().subscriptionId,  parameters('virtualMachineAdminPasswordvaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-        },
-        "secretName": "[parameters('virtualMachineAdminPasswordvaultsecretName')]"
-      }
-    },
     "virtualMachineNamePrefix": {
       "defaultValue": "MyVM0",
       "type": "string",
@@ -180,7 +171,14 @@
             "provisionVMAgent": true
           },
           "secrets": [],
-          "adminPassword": "[parameters('virtualMachineAdminPasswordfromvault')]"
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(subscription().subscriptionId,  parameters('virtualMachineAdminPasswordvaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('virtualMachineAdminPasswordvaultsecretName')]"
+            }
+          }
         },
         "networkProfile": {
           "networkInterfaces": [
