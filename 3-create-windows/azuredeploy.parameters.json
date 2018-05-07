@@ -13,7 +13,7 @@
     },
     "stringToConvert": {
       "type": "string",
-      "defaultValue": "{{ fromansibleplaybook_virtualMachineCount }}"
+      "value": "{{ fromansibleplaybook_virtualMachineCount }}"
     },
     "virtualMachineCount": {
       "value": "[int(parameters('stringToConvert'))]"

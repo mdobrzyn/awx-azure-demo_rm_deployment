@@ -19,6 +19,10 @@
         "description": "Name of the virtual machine to be created"
       }
     },
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "{{ fromansibleplaybook_virtualMachineCount }}"
+    },
     "virtualMachineCount": {
       "type": "int",
       "defaultValue": 2,
