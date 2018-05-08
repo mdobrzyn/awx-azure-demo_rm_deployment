@@ -15,7 +15,6 @@
     "virtualMachineNamePrefix": {
       "defaultValue": "MyVM0",
       "type": "string",
-      "maxLength": 15,
       "metadata": {
         "description": "Name of the virtual machine to be created"
       }
