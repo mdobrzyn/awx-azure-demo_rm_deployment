@@ -12,8 +12,8 @@
         state: present
         resource_group_name: vms
         location: westeurope
-        template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/3-create-windows/azuredeploy.json'
-        parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/master/3-create-windows/azuredeploy.parameters.json'
+        template_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/ansiblevar/3-create-windows/azuredeploy.json'
+        parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/ansiblevar/3-create-windows/azuredeploy.parameters.json'
         # parameters:
         #   virtualMachineAdminUserName:
         #     value: vmadmin
