@@ -15,13 +15,14 @@
     "virtualMachineNamePrefix": {
       "defaultValue": "MyVM0",
       "type": "string",
+      "maxLength": 15,
       "metadata": {
         "description": "Name of the virtual machine to be created"
       }
     },
     "virtualMachineCount": {
-      "type": "string",
-      "defaultValue": "2",
+      "type": "int",
+      "defaultValue": 3,
       "metadata": {
         "description": "Number of  virtual machines to be created"
       }
@@ -29,6 +30,14 @@
     "virtualMachineSize": {
       "type": "string",
       "defaultValue": "Standard_B2s",
+      "allowedValues": [
+        "Standard_B2s",
+        "Standard_DS1_v2",
+        "Standard_DS2_v2",
+        "Standard_DS3_v2",
+        "Standard_DS4_v2",
+        "Standard_DS5_v2"
+      ],
       "metadata": {
         "description": "Virtual Machine Size"
       }
@@ -87,8 +96,7 @@
     "availabilitySetPlatformFaultDomainCount": "2",
     "availabilitySetPlatformUpdateDomainCount": "5",
     "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-    "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]",
-    "vmcount": "[int(parameters('virtualMachineCount'))]"
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
   },
   "resources": [
     {
@@ -125,7 +133,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "VMcopy",
-        "count": "[variables('vmcount')]"
+        "count": "[parameters('virtualMachineCount')]"
       },
       "properties": {
         "hardwareProfile": {
@@ -186,7 +194,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "NICCopy",
-        "count": "[variables('vmcount')]"
+        "count": "[parameters('virtualMachineCount')]"
       },
       "properties": {
         "ipConfigurations": [
