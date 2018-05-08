@@ -21,7 +21,7 @@
       "value": "Server2016"
     },
     "availabilitySetName": {
-      "value": "[concat(parameters('virtualMachineNamePrefix'), 'as']"
+      "value": "availset"
     },
     "virtualNetworkName": {
       "value": "{{ fromansibleplaybook_virtualNetworkName }}"
