@@ -16,22 +16,22 @@
         #parameters_link: 'https://raw.githubusercontent.com/mdobrzyn/awx-demo-azure_rm_deployment/ansiblevar/3-create-windows/azuredeploy.parameters.json'
         parameters:
           virtualMachineAdminUserName:
-            value: {{ fromansibleplaybook_virtualMachineAdminUserName }}
+            value: "{{ fromansibleplaybook_virtualMachineAdminUserName }}"
           virtualMachineAdminPassword:
-            value: {{ fromansibleplaybook_adminPassword }}
+            value: "{{ fromansibleplaybook_adminPassword }}"
           virtualMachineNamePrefix:
-            value: {{ fromansibleplaybook_virtualMachineNamePrefix }}
+            value: "{{ fromansibleplaybook_virtualMachineNamePrefix }}"
           virtualMachineCount:
             value: 2
           virtualMachineSize:
-            value: {{ fromansibleplaybook_virtualMachineSize }}
+            value: "{{ fromansibleplaybook_virtualMachineSize }}"
           operatingSystem:
             value: Server2016
           availabilitySetName: 
             value: avset
           virtualNetworkName:
-            value: {{ fromansibleplaybook_virtualNetworkName }}
+            value: "{{ fromansibleplaybook_virtualNetworkName }}"
           virtualNetworkResourceGroup:
-            value: {{ fromansibleplaybook_virtualNetworkResourceGroup }}
+            value: "{{ fromansibleplaybook_virtualNetworkResourceGroup }}"
           subnet1Name:
-            value: {{ fromansibleplaybook_subnet1Name }}
+            value: "{{ fromansibleplaybook_subnet1Name }}"
