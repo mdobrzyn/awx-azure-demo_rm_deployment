@@ -20,8 +20,8 @@
       }
     },
     "virtualMachineCount": {
-      "type": "int",
-      "defaultValue": 3,
+      "type": "string",
+      "defaultValue": "2",
       "metadata": {
         "description": "Number of  virtual machines to be created"
       }
@@ -31,11 +31,13 @@
       "defaultValue": "Standard_B2s",
       "allowedValues": [
         "Standard_B2s",
-        "Standard_DS1_v2",
-        "Standard_DS2_v2",
-        "Standard_DS3_v2",
-        "Standard_DS4_v2",
-        "Standard_DS5_v2"
+        "Standard_B4s",
+        "Standard_A2_v2",
+        "Standard_A4_v2",
+        "Standard_D2_v2",
+        "Standard_D3_v2",
+        "Standard_D4_v2",
+        "Standard_D5_v2"
       ],
       "metadata": {
         "description": "Virtual Machine Size"
@@ -95,7 +97,8 @@
     "availabilitySetPlatformFaultDomainCount": "2",
     "availabilitySetPlatformUpdateDomainCount": "5",
     "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-    "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]",
+    "vmcount": "[int(parameters('virtualMachineCount'))]"
   },
   "resources": [
     {
@@ -132,7 +135,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "VMcopy",
-        "count": "[parameters('virtualMachineCount')]"
+        "count": "[variables('vmcount')]"
       },
       "properties": {
         "hardwareProfile": {
@@ -149,7 +152,7 @@
             "name": "[concat(parameters('virtualMachineNamePrefix'),copyIndex(1))]",
             "createOption": "FromImage",
             "managedDisk": {
-              "storageAccountType": "Premium_LRS"
+              "storageAccountType": "Standard_LRS"
             },
             "caching": "ReadWrite"
           }
@@ -166,7 +169,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-nic1'))]"
             }
           ]
         },
@@ -183,17 +186,17 @@
       "dependsOn": [
         "[concat('Microsoft.Compute/availabilitySets/', parameters('availabilitySetName'))]",
         "[concat('Microsoft.Storage/storageAccounts/', variables('diagnosticStorageAccountName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-nic1'))]"
       ]
     },
     {
       "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1')]",
+      "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-nic1')]",
       "apiVersion": "2016-03-30",
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "NICCopy",
-        "count": "[parameters('virtualMachineCount')]"
+        "count": "[variables('vmcount')]"
       },
       "properties": {
         "ipConfigurations": [
