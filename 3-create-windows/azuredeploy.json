@@ -59,7 +59,8 @@
       },
       "allowedValues": [
         "Server2012R2",
-        "Server2016"
+        "Server2016",
+        "Server2019"
       ]
     },
     "availabilitySetName": {
@@ -82,6 +83,11 @@
         "PublisherValue": "MicrosoftWindowsServer",
         "OfferValue": "WindowsServer",
         "SkuValue": "2016-Datacenter"
+      },
+      "Server2019": {
+        "PublisherValue": "MicrosoftWindowsServer",
+        "OfferValue": "WindowsServer",
+        "SkuValue": "2019-Datacenter"
       }
     },
     "availabilitySetPlatformFaultDomainCount": "2",
